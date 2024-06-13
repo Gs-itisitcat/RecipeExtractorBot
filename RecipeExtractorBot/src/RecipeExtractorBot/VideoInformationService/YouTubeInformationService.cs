@@ -33,8 +33,14 @@ public partial class YouTubeInformationService(IConfiguration configuration) : I
                                                                         .Where(m => m.Success)
                                                                         .Select(m => m.Groups["id"].Value);
 
-    public async ValueTask<IVideoInformation?> GetVideoInformation(string videoId)
+    public async ValueTask<IVideoInformation?> GetVideoInformation(string videoUrl)
     {
+        var videoId = GetVideoId(videoUrl);
+        if (videoId is null)
+        {
+            return null;
+        }
+
         var video = await GetVideo(videoId);
         if (video is null)
         {

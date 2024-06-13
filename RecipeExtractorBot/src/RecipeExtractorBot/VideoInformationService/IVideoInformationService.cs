@@ -1,4 +1,6 @@
-﻿namespace RecipeExtractorBot.VideoInformation;
+﻿using Microsoft.Extensions.Configuration;
+
+namespace RecipeExtractorBot.VideoInformation;
 
 public interface IVideoInformationService
 {
@@ -8,6 +10,14 @@ public interface IVideoInformationService
     /// <param name="text">The text to check.</param>
     /// <returns>Returns true if the text is a video URL; otherwise, false.</returns>
     public abstract static bool IsVideoURL(string text);
+    public static bool isValidUrl(string url)
+    {
+        return url switch
+        {
+            _ when YouTubeInformationService.IsVideoURL(url) => true,
+            _ => false,
+        };
+    }
 
     /// <summary>
     /// Gets the video URL from the specified text.
@@ -27,9 +37,23 @@ public interface IVideoInformationService
     public abstract static IEnumerable<string> GetVideoURLs(string text);
 
     /// <summary>
-    /// Gets the <see cref="IVideoInformation"/> object from the specified video ID.
+    /// Gets the <see cref="IVideoInformation"/> object from the specified video URL.
     /// </summary>
-    /// <param name="videoId">The video ID to get the video information from.</param>
-    /// <returns>Returns the <see cref="IVideoInformation"/> object representing the video information of the specified video ID.</returns>
-    public ValueTask<IVideoInformation?> GetVideoInformation(string videoId);
+    /// <param name="videoUrl">The video URL to get the video information from.</param>
+    /// <returns>Returns the <see cref="IVideoInformation"/> object representing the video information of the specified video URL.</returns>
+    public ValueTask<IVideoInformation?> GetVideoInformation(string videoUrl);
+    /// <summary>
+    /// Gets the <see cref="IVideoInformation"/> object from the specified video URL.
+    /// </summary>
+    /// <param name="url">The video URL to get the video information from.</param>
+    /// <param name="configuration">The configuration to use.</param>
+    /// <returns>Returns the <see cref="IVideoInformation"/> object representing the video information of the specified video URL.</returns>
+    public static IVideoInformationService? GetInformationServiceOf(string url, IConfiguration configuration)
+    {
+        return url switch
+        {
+            _ when YouTubeInformationService.IsVideoURL(url) => new YouTubeInformationService(configuration),
+            _ => null,
+        };
+    }
 }
