@@ -10,12 +10,12 @@ public record class Embed
     public Author? Author { get; init; }
     public int? Color { get; init; }
     public EmbedImage? Image { get; init; }
-    public List<Field>? Fields { get; init; }
+    public IReadOnlyList<Field>? Fields { get; init; }
 
     public Embed() { }
 
     [JsonConstructor]
-    public Embed(string title = "", string description = "", string url = "", Author? author = null, int? color = null, EmbedImage? image = null, List<Field>? fields = null)
+    public Embed(string title = "", string description = "", string url = "", Author? author = null, int? color = null, EmbedImage? image = null, IReadOnlyList<Field>? fields = null)
     {
         Title = title;
         Description = description;

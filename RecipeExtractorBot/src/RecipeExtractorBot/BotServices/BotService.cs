@@ -18,7 +18,7 @@ public class DiscordBotService(IRecipeExtractor recipeExtractor, IResponseServic
     private readonly IResponseService _responseService = responseService;
     private readonly IAmazonLambda _lambdaClient = amazonLambda;
 
-    private string _discordBotPublicKey = configuration.GetValue<string>("DISCORD_BOT_PUBLIC_KEY") ?? string.Empty;
+    private readonly string _discordBotPublicKey = configuration.GetValue<string>("DISCORD_BOT_PUBLIC_KEY") ?? string.Empty;
     private readonly string _discordBotApplicationId = configuration.GetValue<string>("DISCORD_BOT_APPLICATION_ID") ?? string.Empty;
     private readonly string _discordBotToken = configuration.GetValue<string>("DISCORD_BOT_TOKEN") ?? string.Empty;
     private readonly string _recipeLambdaFunctionName = configuration.GetValue<string>("RECIPE_LAMBDA_FUNCTION_NAME") ?? string.Empty;
@@ -111,7 +111,7 @@ public class DiscordBotService(IRecipeExtractor recipeExtractor, IResponseServic
     /// <remarks>
     /// This function will invoke the recipe lambda function to extract recipes from the URL, because the recipe extraction process is time-consuming.
     /// </remarks>
-    private async ValueTask<IHttpResult> RecipeCommandAsync(List<ApplicationCommandOption>? options, string token, ILambdaContext context, CancellationToken cancellationToken = default)
+    private async ValueTask<IHttpResult> RecipeCommandAsync(IReadOnlyList<ApplicationCommandOption>? options, string token, ILambdaContext context, CancellationToken cancellationToken = default)
     {
         if (options is null)
         {

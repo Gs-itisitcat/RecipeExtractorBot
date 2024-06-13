@@ -3,7 +3,7 @@
 namespace RecipeExtractorBot.DiscordInteractions;
 
 [method: JsonConstructor]
-public class FollowUpResponse(string content = "", Embed[]? embeds = null, MessageFlags flags = 0)
+public class FollowUpResponse(string content = "", IReadOnlyList<Embed>? embeds = null, MessageFlags flags = 0)
 {
     public string Content { get; init; } = content;
     public IReadOnlyList<Embed> Embeds { get; init; } = embeds ?? [];

@@ -62,12 +62,12 @@ public record class ApplicationCommandOption
     public bool? Required { get; init; }
     public string? Value { get; init; }
 
-    public List<ApplicationCommandOption>? Options { get; init; }
+    public IReadOnlyList<ApplicationCommandOption>? Options { get; init; }
 
     public ApplicationCommandOption() { }
 
     [JsonConstructor]
-    public ApplicationCommandOption(string name, ApplicationCommandOptionType type, string? value = null, List<ApplicationCommandOption>? options = null)
+    public ApplicationCommandOption(string name, ApplicationCommandOptionType type, string? value = null, IReadOnlyList<ApplicationCommandOption>? options = null)
     {
         Name = name;
         Type = type;

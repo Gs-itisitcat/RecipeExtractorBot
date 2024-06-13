@@ -7,7 +7,7 @@ using Google.Apis.YouTube.v3.Data;
 
 namespace RecipeExtractorBot.VideoInformationServices;
 
-public partial class YouTubeInformationService(IConfiguration configuration) : IVideoInformationService
+public sealed partial class YouTubeInformationService(IConfiguration configuration) : IVideoInformationService, IDisposable
 {
     [GeneratedRegex(@"^https:\/\/(?:(?:www\.youtube\.com\/watch\?([^v]+=.+&)*v=)|(?:youtu\.be\/))(?<id>[^\?&]+).*$", RegexOptions.Compiled)]
     private static partial Regex VideoRegex();
@@ -89,4 +89,8 @@ public partial class YouTubeInformationService(IConfiguration configuration) : I
         return channel;
     }
 
+    public void Dispose()
+    {
+        _youtubeService.Dispose();
+    }
 }

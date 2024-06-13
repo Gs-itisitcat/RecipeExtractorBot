@@ -30,12 +30,12 @@ public record class InteractionData
     public string Id { get; init; }
     public string Name { get; init; }
     public ApplicationCommandType Type { get; init; }
-    public List<ApplicationCommandOption>? Options { get; init; }
+    public IReadOnlyList<ApplicationCommandOption>? Options { get; init; }
     public string? GuildId { get; init; }
     public string? TargetId { get; init; }
 
     [JsonConstructor]
-    public InteractionData(string id, string name, ApplicationCommandType type, List<ApplicationCommandOption>? options = null, string? guildId = null, string? targetId = null)
+    public InteractionData(string id, string name, ApplicationCommandType type, IReadOnlyList<ApplicationCommandOption>? options = null, string? guildId = null, string? targetId = null)
     {
         Id = id;
         Name = name;

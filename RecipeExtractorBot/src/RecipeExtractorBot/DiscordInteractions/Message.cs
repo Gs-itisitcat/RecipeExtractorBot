@@ -4,7 +4,7 @@ public record class Message
 {
     public string? Id { get; init; }
     public string? Content { get; init; }
-    public List<Embed>? Embeds { get; init; }
+    public IReadOnlyList<Embed>? Embeds { get; init; }
     public MessageFlags? Flags { get; init; }
 }
 

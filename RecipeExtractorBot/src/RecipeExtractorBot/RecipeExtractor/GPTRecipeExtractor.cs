@@ -23,6 +23,7 @@ public class GPTRecipeExtractor(IOpenAIService openAIService, IConfiguration con
         }
 
         var videoInformation = await videoInformationService.GetVideoInformation(url);
+        (videoInformationService as IDisposable)?.Dispose();
 
         var description = videoInformation?.Description;
         if (string.IsNullOrWhiteSpace(description))
