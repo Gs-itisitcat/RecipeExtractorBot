@@ -1,4 +1,4 @@
-namespace RecipeExtractorBot.VideoInformation;
+namespace RecipeExtractorBot.VideoInformationServices;
 
 public interface IVideoInformation
 {

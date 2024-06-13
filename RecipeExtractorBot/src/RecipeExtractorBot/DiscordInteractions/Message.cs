@@ -1,6 +1,4 @@
-﻿using RecipeExtractorBot.Serialization.DiscordInteraction.Embeds;
-
-namespace RecipeExtractorBot.Serialization.DiscordInteraction.InteractionResponse;
+﻿namespace RecipeExtractorBot.DiscordInteractions;
 
 public record class Message
 {

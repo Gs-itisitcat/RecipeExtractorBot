@@ -5,7 +5,7 @@ using Google.Apis.Services;
 using Google.Apis.YouTube.v3;
 using Google.Apis.YouTube.v3.Data;
 
-namespace RecipeExtractorBot.VideoInformation;
+namespace RecipeExtractorBot.VideoInformationServices;
 
 public partial class YouTubeInformationService(IConfiguration configuration) : IVideoInformationService
 {

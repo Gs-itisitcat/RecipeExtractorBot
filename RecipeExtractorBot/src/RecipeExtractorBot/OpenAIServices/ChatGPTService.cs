@@ -1,9 +1,9 @@
 ﻿using System.Text.Json;
 using Microsoft.Extensions.Configuration;
 using Azure.AI.OpenAI;
-using RecipeExtractorBot.Serialization;
+using RecipeExtractorBot.Recipes;
 
-namespace OpenAIService;
+namespace RecipeExtractorBot.OpenAIServices;
 
 public class ChatGPTService(IConfiguration configuration) : IOpenAIService
 {

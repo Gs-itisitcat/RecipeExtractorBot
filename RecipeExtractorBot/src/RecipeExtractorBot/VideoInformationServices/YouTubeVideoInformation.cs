@@ -1,6 +1,6 @@
 using Google.Apis.YouTube.v3.Data;
 
-namespace RecipeExtractorBot.VideoInformation;
+namespace RecipeExtractorBot.VideoInformationServices;
 
 public class YouTubeVideoInformation : IVideoInformation
 {

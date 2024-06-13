@@ -3,7 +3,7 @@ using Amazon.Lambda.Annotations.APIGateway;
 using Amazon.Lambda.Core;
 using Amazon.Lambda.APIGatewayEvents;
 
-using RecipeExtractorBot.BotService;
+using RecipeExtractorBot.BotServices;
 
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
 

@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using NSec.Cryptography;
 
-namespace RecipeExtractorBot.DiscordInteraction;
+namespace RecipeExtractorBot.DiscordInteractions;
 
 public static class Verification
 {

@@ -1,7 +1,7 @@
 using Microsoft.Extensions.Configuration;
-using OpenAIService;
-using RecipeExtractorBot.Serialization;
-using RecipeExtractorBot.VideoInformation;
+using RecipeExtractorBot.OpenAIServices;
+using RecipeExtractorBot.Recipes;
+using RecipeExtractorBot.VideoInformationServices;
 
 namespace RecipeExtractorBot.RecipeExtractor;
 

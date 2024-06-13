@@ -4,17 +4,13 @@ using Microsoft.Extensions.Configuration;
 using Amazon.Lambda;
 using Amazon.Lambda.Core;
 using Amazon.Lambda.Annotations.APIGateway;
-using RecipeExtractorBot.Response;
+using RecipeExtractorBot.ResponseServices;
 using RecipeExtractorBot.RecipeExtractor;
-using RecipeExtractorBot.DiscordInteraction;
-using RecipeExtractorBot.Serialization;
-using RecipeExtractorBot.Serialization.DiscordInteraction.ApplicationCommands;
-using RecipeExtractorBot.Serialization.DiscordInteraction.Embeds;
-using RecipeExtractorBot.Serialization.DiscordInteraction.FollowUp;
-using RecipeExtractorBot.Serialization.DiscordInteraction.Interactions;
-using RecipeExtractorBot.VideoInformation;
+using RecipeExtractorBot.Recipes;
+using RecipeExtractorBot.DiscordInteractions;
+using RecipeExtractorBot.VideoInformationServices;
 
-namespace RecipeExtractorBot.BotService;
+namespace RecipeExtractorBot.BotServices;
 
 public class DiscordBotService(IRecipeExtractor recipeExtractor, IResponseService responseService, IAmazonLambda amazonLambda, IConfiguration configuration) : IBotService
 {

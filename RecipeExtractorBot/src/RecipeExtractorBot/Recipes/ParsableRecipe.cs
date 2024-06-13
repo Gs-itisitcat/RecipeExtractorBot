@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace RecipeExtractorBot.Serialization;
+namespace RecipeExtractorBot.Recipes;
 
 /// <summary>
 // Represents a list of recipes that can be parsed from a JSON string.

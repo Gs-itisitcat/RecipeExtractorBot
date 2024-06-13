@@ -1,5 +1,5 @@
-using RecipeExtractorBot.Serialization;
-using RecipeExtractorBot.VideoInformation;
+using RecipeExtractorBot.Recipes;
+using RecipeExtractorBot.VideoInformationServices;
 
 namespace RecipeExtractorBot.RecipeExtractor;
 

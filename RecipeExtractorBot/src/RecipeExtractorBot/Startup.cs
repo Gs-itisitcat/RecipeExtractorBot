@@ -1,9 +1,9 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Amazon.Lambda;
-using OpenAIService;
-using RecipeExtractorBot.BotService;
-using RecipeExtractorBot.Response;
+using RecipeExtractorBot.OpenAIServices;
+using RecipeExtractorBot.BotServices;
+using RecipeExtractorBot.ResponseServices;
 using RecipeExtractorBot.RecipeExtractor;
 
 namespace RecipeExtractorBot

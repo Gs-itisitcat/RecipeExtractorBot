@@ -1,7 +1,7 @@
 using Amazon.Lambda.Core;
 using Amazon.Lambda.Annotations.APIGateway;
 
-namespace RecipeExtractorBot.BotService;
+namespace RecipeExtractorBot.BotServices;
 
 public interface IBotService
 {

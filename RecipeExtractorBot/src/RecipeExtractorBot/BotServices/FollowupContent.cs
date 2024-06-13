@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace RecipeExtractorBot.BotService;
+namespace RecipeExtractorBot.BotServices;
 
 public record class FollowupContent
 {

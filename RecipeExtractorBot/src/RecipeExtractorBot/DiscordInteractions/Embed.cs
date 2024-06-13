@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace RecipeExtractorBot.Serialization.DiscordInteraction.Embeds;
+namespace RecipeExtractorBot.DiscordInteractions;
 
 public record class Embed
 {

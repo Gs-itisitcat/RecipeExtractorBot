@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace RecipeExtractorBot.Serialization;
+namespace RecipeExtractorBot.Recipes;
 
 public record class Recipe
 {

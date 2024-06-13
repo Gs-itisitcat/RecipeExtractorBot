@@ -1,8 +1,6 @@
-﻿using RecipeExtractorBot.Serialization.DiscordInteraction.Embeds;
-using RecipeExtractorBot.Serialization.DiscordInteraction.InteractionResponse;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
-namespace RecipeExtractorBot.Serialization.DiscordInteraction.FollowUp;
+namespace RecipeExtractorBot.DiscordInteractions;
 
 [method: JsonConstructor]
 public class FollowUpResponse(string content = "", Embed[]? embeds = null, MessageFlags flags = 0)

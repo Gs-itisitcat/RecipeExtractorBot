@@ -1,11 +1,9 @@
 using System.Text.Json;
 using System.Net.Http.Json;
 using Amazon.Lambda.Annotations.APIGateway;
-using RecipeExtractorBot.Serialization.DiscordInteraction.InteractionResponse;
-using RecipeExtractorBot.Serialization.DiscordInteraction.FollowUp;
-using RecipeExtractorBot.Serialization.DiscordInteraction.ApplicationCommands;
+using RecipeExtractorBot.DiscordInteractions;
 
-namespace RecipeExtractorBot.Response;
+namespace RecipeExtractorBot.ResponseServices;
 
 public class ResponseService : IResponseService
 {

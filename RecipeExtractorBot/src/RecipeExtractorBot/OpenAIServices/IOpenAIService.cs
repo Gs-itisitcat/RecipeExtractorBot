@@ -1,6 +1,6 @@
-﻿using RecipeExtractorBot.Serialization;
+﻿using RecipeExtractorBot.Recipes;
 
-namespace OpenAIService;
+namespace RecipeExtractorBot.OpenAIServices;
 
 public interface IOpenAIService
 {

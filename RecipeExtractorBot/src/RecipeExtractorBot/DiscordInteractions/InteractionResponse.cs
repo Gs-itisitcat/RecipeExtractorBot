@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace RecipeExtractorBot.Serialization.DiscordInteraction.InteractionResponse;
+namespace RecipeExtractorBot.DiscordInteractions;
 
 public record class InteractionResponse
 {

@@ -1,8 +1,7 @@
 using Amazon.Lambda.Annotations.APIGateway;
-using RecipeExtractorBot.Serialization.DiscordInteraction.ApplicationCommands;
-using RecipeExtractorBot.Serialization.DiscordInteraction.FollowUp;
+using RecipeExtractorBot.DiscordInteractions;
 
-namespace RecipeExtractorBot.Response;
+namespace RecipeExtractorBot.ResponseServices;
 public interface IResponseService
 {
     /// <summary>
