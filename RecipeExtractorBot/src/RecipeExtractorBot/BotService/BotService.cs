@@ -271,17 +271,17 @@ public class DiscordBotService(IRecipeExtractor recipeExtractor, IResponseServic
 
             var descriptionBuilder = new StringBuilder();
 
-            if (recipe.Name is not null)
+            if (recipe.Name is not null and not "null")
             {
                 descriptionBuilder.AppendLine($"**{recipe.Name}**");
             }
 
-            if (recipe.Serving is not null)
+            if (recipe.Serving is not null and not "null")
             {
                 descriptionBuilder.AppendLine($"**分量:** {recipe.Serving}");
             }
 
-            if (!string.IsNullOrWhiteSpace(recipe.Procedure))
+            if (recipe.Procedure is not null and not "null")
             {
                 descriptionBuilder.AppendLine();
                 descriptionBuilder.AppendLine(recipe.Procedure);
@@ -300,13 +300,13 @@ public class DiscordBotService(IRecipeExtractor recipeExtractor, IResponseServic
 
                     // Spaces between groups are not enough to separate them with just a newline.
                     descriptionBuilder.AppendLine().AppendLine();
-                    if (group.Key is not null)
+                    if (group.Key is not null and not "null")
                     {
                         descriptionBuilder.AppendLine($"**{group.Key}**");
                     }
                     descriptionBuilder.AppendLine("--------------------");
 
-                    descriptionBuilder.AppendJoin("\n", group.Select(i => $"**{i.Name}:** {i.Amount}"));
+                    descriptionBuilder.AppendJoin("\n", group.Select(i => $"**{i.Name}:** {(i.Amount is null or "null" ? string.Empty : i.Amount)}"));
                 }
             }
             else
@@ -317,9 +317,9 @@ public class DiscordBotService(IRecipeExtractor recipeExtractor, IResponseServic
                 foreach (var group in groupedIngredients)
                 {
                     context.Logger.LogInformation($"Group: {group.Key}");
-                    fields.Add(new Field(group.Key ?? string.Empty, "--------------------", false));
+                    fields.Add(new Field(group.Key is null or "null" ? string.Empty : group.Key, "--------------------", false));
 
-                    fields.AddRange(group.Select(i => new Field(i.Name, i.Amount ?? string.Empty, true)));
+                    fields.AddRange(group.Select(i => new Field(i.Name, i.Amount is null or "null" ? string.Empty : i.Amount, true)));
                     fields[^1].Inline = false;
                 }
 
