@@ -8,6 +8,6 @@ namespace RecipeExtractorBot.Serialization.DiscordInteraction.FollowUp;
 public class FollowUpResponse(string content = "", Embed[]? embeds = null, MessageFlags flags = 0)
 {
     public string Content { get; init; } = content;
-    public Embed[] Embeds { get; init; } = embeds ?? [];
+    public IReadOnlyList<Embed> Embeds { get; init; } = embeds ?? [];
     public MessageFlags Flags { get; init; } = flags;
 }

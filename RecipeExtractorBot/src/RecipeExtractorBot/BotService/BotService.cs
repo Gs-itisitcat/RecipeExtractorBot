@@ -22,7 +22,7 @@ public class DiscordBotService(IRecipeExtractor recipeExtractor, IResponseServic
     private readonly IResponseService _responseService = responseService;
     private readonly IAmazonLambda _lambdaClient = amazonLambda;
 
-    private readonly string _discordBotPublicKey = configuration.GetValue<string>("DISCORD_BOT_PUBLIC_KEY") ?? string.Empty;
+    private string _discordBotPublicKey = configuration.GetValue<string>("DISCORD_BOT_PUBLIC_KEY") ?? string.Empty;
     private readonly string _discordBotApplicationId = configuration.GetValue<string>("DISCORD_BOT_APPLICATION_ID") ?? string.Empty;
     private readonly string _discordBotToken = configuration.GetValue<string>("DISCORD_BOT_TOKEN") ?? string.Empty;
     private readonly string _recipeLambdaFunctionName = configuration.GetValue<string>("RECIPE_LAMBDA_FUNCTION_NAME") ?? string.Empty;
@@ -203,8 +203,8 @@ public class DiscordBotService(IRecipeExtractor recipeExtractor, IResponseServic
         IReadOnlyList<Recipe> recipes = [];
         while (retries < _maxRetries)
         {
-            var timeoutCancellationTokenSource = new CancellationTokenSource(_timeout);
-            var linkedTokenSource = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, timeoutCancellationTokenSource.Token);
+            using var timeoutCancellationTokenSource = new CancellationTokenSource(_timeout);
+            using var linkedTokenSource = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, timeoutCancellationTokenSource.Token);
             try
             {
                 (information, recipes) = await _recipeExtractor.ExtractRecipeAsync(url, linkedTokenSource.Token);

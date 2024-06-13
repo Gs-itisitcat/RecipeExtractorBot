@@ -8,14 +8,14 @@ public record class ApplicationCommand
     public required string Name { get; init; }
     public ApplicationCommandType Type { get; init; }
     public string? Description { get; init; }
-    public List<ApplicationCommandOption>? Options { get; init; }
+    public IReadOnlyList<ApplicationCommandOption>? Options { get; init; }
     public string? GuildId { get; init; }
     public string? TargetId { get; init; }
 
     public ApplicationCommand() { }
 
     [JsonConstructor]
-    public ApplicationCommand(string id, string name, ApplicationCommandType type, List<ApplicationCommandOption>? options = null, string? guildId = null, string? targetId = null)
+    public ApplicationCommand(string id, string name, ApplicationCommandType type, IReadOnlyList<ApplicationCommandOption>? options = null, string? guildId = null, string? targetId = null)
     {
         Id = id;
         Name = name;
@@ -78,6 +78,7 @@ public record class ApplicationCommandOption
 
 public enum ApplicationCommandOptionType
 {
+    NONE,
     SUB_COMMAND = 1,
     SUB_COMMAND_GROUP = 2,
     STRING = 3,
@@ -94,6 +95,7 @@ public enum ApplicationCommandOptionType
 
 public enum ApplicationCommandType
 {
+    NONE,
     CHAT_INPUT = 1,
     USER = 2,
     MESSAGE = 3,

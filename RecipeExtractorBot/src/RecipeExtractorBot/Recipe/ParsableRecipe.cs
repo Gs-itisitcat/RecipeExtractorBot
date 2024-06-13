@@ -7,10 +7,10 @@ namespace RecipeExtractorBot.Serialization;
 /// </summary>
 internal record class ParsableRecipe
 {
-    public List<Recipe> Recipes { get; init; }
+    public IReadOnlyList<Recipe> Recipes { get; init; }
 
     [JsonConstructor]
-    public ParsableRecipe(List<Recipe> recipes)
+    public ParsableRecipe(IReadOnlyList<Recipe> recipes)
     {
         Recipes = recipes;
     }
